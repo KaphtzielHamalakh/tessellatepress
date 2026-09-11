@@ -5,16 +5,56 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Tessellate Press — the imprint of Eli Mercer</title>
 <meta name="description" content="Tessellate Press is an independent imprint publishing the novels and memoir of Eli Mercer.">
+<link rel="canonical" href="https://tessellatepress.com/">
+<meta name="theme-color" content="#14181A">
+<meta property="og:type" content="website">
 <meta property="og:title" content="Tessellate Press">
-<meta property="og:description" content="An independent imprint. Publisher of Eli Mercer.">
+<meta property="og:description" content="Literary science fiction and a memoir that pretends to be science fiction, by Eli Mercer.">
 <meta property="og:image" content="https://tessellatepress.com/logo-color.jpg">
 <meta property="og:url" content="https://tessellatepress.com/">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Tessellate Press">
+<meta name="twitter:description" content="Literary science fiction and a memoir that pretends to be science fiction, by Eli Mercer.">
+<meta name="twitter:image" content="https://tessellatepress.com/logo-color.jpg">
 <link rel="icon" href="favicon.png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://tessellatepress.com/#press",
+      "name": "Tessellate Press",
+      "url": "https://tessellatepress.com/",
+      "logo": "https://tessellatepress.com/logo-color.jpg",
+      "email": "eli@tessellatepress.com",
+      "description": "An independent imprint publishing the novels and memoir of Eli Mercer."
+    },
+    {
+      "@type": "Person",
+      "@id": "https://tessellatepress.com/#eli-mercer",
+      "name": "Eli Mercer",
+      "url": "https://tessellatepress.com/#author",
+      "description": "Author of literary science fiction and one memoir that pretends to be science fiction."
+    },
+    {
+      "@type": "ItemList",
+      "name": "Books by Eli Mercer",
+      "numberOfItems": 4,
+      "itemListElement": [
+        {"@type":"ListItem","position":1,"url":"https://tessellatepress.com/books/the-empty-room.html"},
+        {"@type":"ListItem","position":2,"url":"https://tessellatepress.com/books/the-pilgrim-and-the-machine.html"},
+        {"@type":"ListItem","position":3,"url":"https://tessellatepress.com/books/the-receiver-species.html"},
+        {"@type":"ListItem","position":4,"url":"https://tessellatepress.com/books/the-only-living-boy-in-new-york.html"}
+      ]
+    }
+  ]
+}
+</script>
 <style>
 :root{
   --paper:#E9DCC0;
@@ -85,6 +125,7 @@ section{padding:clamp(3.25rem,7vw,5.5rem) 0}
 .entry{display:grid;grid-template-columns:minmax(0,240px) minmax(0,1fr);gap:clamp(1.5rem,4vw,3rem);padding:2.25rem 0;border-bottom:1px solid var(--rule)}
 .entry:last-child{border-bottom:0}
 .jacket{position:relative;align-self:start}
+.jacket>a{display:block}
 .jacket img{
   border:1px solid rgba(20,24,26,.35);
   box-shadow:6px 8px 0 rgba(20,24,26,.16);
@@ -111,6 +152,11 @@ section{padding:clamp(3.25rem,7vw,5.5rem) 0}
   text-decoration:none;background:var(--ink);color:var(--paper);padding:.5rem .95rem;border:2px solid var(--ink);
 }
 .buy:hover,.buy:focus-visible{background:var(--rust);border-color:var(--rust)}
+.details{
+  font-family:"Oswald",sans-serif;text-transform:uppercase;letter-spacing:.1em;font-size:.82rem;
+  text-decoration:none;color:var(--ink);padding:.5rem .15rem;border-bottom:2px solid var(--ink);
+}
+.details:hover,.details:focus-visible{color:var(--rust);border-bottom-color:var(--rust)}
 
 /* ---------- author ---------- */
 .author{background:var(--paper-lt);border-block:2px solid var(--ink)}
@@ -231,7 +277,7 @@ footer a:hover{color:var(--gold)}
     <article class="entry">
       <div class="jacket">
         <span class="stamp"><svg viewBox="-104 -92 208 184" aria-hidden="true"><use href="#hexmark" fill="#14181A" stroke="#F3EAD8" stroke-width="4"/></svg><b>M-126</b></span>
-        <img src="cover-empty-room.jpg" alt="Cover of The Empty Room by Eli Mercer" loading="lazy" width="700" height="1050">
+        <a href="books/the-empty-room.html"><img src="cover-empty-room.jpg" alt="Cover of The Empty Room by Eli Mercer" loading="lazy" width="700" height="1050"></a>
       </div>
       <div>
         <h3>The Empty Room</h3>
@@ -240,7 +286,8 @@ footer a:hover{color:var(--gold)}
         <p class="copy">Chapters arrive in the mail from a novel published in 1979 that no library holds. The more Eli reads, the more the book knows — his apartment, his marriage, the sentence he was about to think. Behind it stands Julian Voss, a cult science fiction writer who spent eleven years failing to finish the one book that mattered, and a widow whose dead husband's album keeps completing itself without him. Three strands, forty-seven years apart, converging on the same hollow center.</p>
         <p class="tagrow">
           <span class="tag avail">Available</span>
-          <a class="buy" href="https://www.amazon.com/dp/B0H36G4RGP" rel="noopener">Buy the book</a>
+          <a class="details" href="books/the-empty-room.html">Title details</a>
+          <a class="buy" href="https://www.amazon.com/dp/B0H36G4RGP" rel="noopener">Buy on Amazon</a>
         </p>
       </div>
     </article>
@@ -248,7 +295,7 @@ footer a:hover{color:var(--gold)}
     <article class="entry">
       <div class="jacket">
         <span class="stamp"><svg viewBox="-104 -92 208 184" aria-hidden="true"><use href="#hexmark" fill="#14181A" stroke="#F3EAD8" stroke-width="4"/></svg><b>SF-64</b></span>
-        <img src="cover-pilgrim.jpg" alt="Cover of The Pilgrim and the Machine by Eli Mercer" loading="lazy" width="700" height="1081">
+        <a href="books/the-pilgrim-and-the-machine.html"><img src="cover-pilgrim.jpg" alt="Cover of The Pilgrim and the Machine by Eli Mercer" loading="lazy" width="700" height="1081"></a>
       </div>
       <div>
         <h3>The Pilgrim and the Machine</h3>
@@ -257,7 +304,8 @@ footer a:hover{color:var(--gold)}
         <p class="copy">He walked to Zenk&#333;ji at 5:28 in the morning, sober, carrying three desires he'd had since he was a boy: to be a rock star, to write novels like Philip K. Dick, to fall in love and stay there. A year later he went back. Between the two journeys sit thirty years of journals and a machine that has read all of them and answers when he asks. 同行二人 — the pilgrim never walks alone. A memoir about what comes back when you stop numbing it, and about who is doing the remembering.</p>
         <p class="tagrow">
           <span class="tag avail">Available</span>
-          <a class="buy" href="https://www.amazon.com/dp/B0H8GDN7YZ" rel="noopener">Buy the book</a>
+          <a class="details" href="books/the-pilgrim-and-the-machine.html">Title details</a>
+          <a class="buy" href="https://www.amazon.com/dp/B0H8GDN7YZ" rel="noopener">Buy on Amazon</a>
         </p>
       </div>
     </article>
@@ -265,7 +313,7 @@ footer a:hover{color:var(--gold)}
     <article class="entry">
       <div class="jacket">
         <span class="stamp"><svg viewBox="-104 -92 208 184" aria-hidden="true"><use href="#hexmark" fill="#14181A" stroke="#F3EAD8" stroke-width="4"/></svg><b>SF-67</b></span>
-        <img src="cover-receiver-species.jpg" alt="Cover of The Receiver Species by Eli Mercer" loading="lazy" width="700" height="1081">
+        <a href="books/the-receiver-species.html"><img src="cover-receiver-species.jpg" alt="Cover of The Receiver Species by Eli Mercer" loading="lazy" width="700" height="1081"></a>
       </div>
       <div>
         <h3>The Receiver Species</h3>
@@ -274,7 +322,8 @@ footer a:hover{color:var(--gold)}
         <p class="copy">At the Helix array in the Atacama, Mara finds the shape underneath forty years of noise, and it isn't a message. It's a memory being kept. Somewhere on the other end, an archive has been recording the dead of worlds that are already gone, and it has no intention of letting them be forgotten. Reading it will cost her Daniel, and Rook, and most of what she thought a mind was. Three thousand years later, the dead answer.</p>
         <p class="tagrow">
           <span class="tag avail">Available</span>
-          <a class="buy" href="https://www.amazon.com/dp/B0HCDRKXD4" rel="noopener">Buy the book</a>
+          <a class="details" href="books/the-receiver-species.html">Title details</a>
+          <a class="buy" href="https://www.amazon.com/dp/B0HCDRKXD4" rel="noopener">Buy on Amazon</a>
         </p>
       </div>
     </article>
@@ -282,7 +331,7 @@ footer a:hover{color:var(--gold)}
     <article class="entry">
       <div class="jacket">
         <span class="stamp"><svg viewBox="-104 -92 208 184" aria-hidden="true"><use href="#hexmark" fill="#14181A" stroke="#F3EAD8" stroke-width="4"/></svg><b>75¢</b></span>
-        <img src="cover-only-living-boy.jpg" alt="Cover of The Only Living Boy in New York by Eli Mercer" loading="lazy" width="700" height="1081">
+        <a href="books/the-only-living-boy-in-new-york.html"><img src="cover-only-living-boy.jpg" alt="Cover of The Only Living Boy in New York by Eli Mercer" loading="lazy" width="700" height="1081"></a>
       </div>
       <div>
         <h3>The Only Living Boy in New York</h3>
@@ -291,7 +340,8 @@ footer a:hover{color:var(--gold)}
         <p class="copy">Every night Gerry climbs to a roof in a dead Manhattan and reads the weather into a microphone at WXNY 103.9, for a city with nobody in it. He writes letters to a friend who stopped speaking to him before the Fall, to a woman named Mira who is not coming back, and to you. SERA answers when he types. Downtown, the Anointed are still singing. He keeps broadcasting because stopping would settle a question he'd rather leave open.</p>
         <p class="tagrow">
           <span class="tag avail">Available</span>
-          <a class="buy" href="https://www.amazon.com/dp/B0HDG816S9" rel="noopener">Buy the book</a>
+          <a class="details" href="books/the-only-living-boy-in-new-york.html">Title details</a>
+          <a class="buy" href="https://www.amazon.com/dp/B0HDG816S9" rel="noopener">Buy on Amazon</a>
         </p>
       </div>
     </article>
