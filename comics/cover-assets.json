@@ -1,0 +1,23 @@
+{
+  "black-mask-cover-1024.jpg": {
+    "sha256": "cf76070cd732deb7596c2e083608fd42d9c5eec6f8f9034f661f7346818e336a",
+    "bytes": 1060885,
+    "width": 1024,
+    "height": 1536,
+    "source_pixel_sha256": "300beaecbf6da5b79ff65af802ce23b81d1361da52aabe53db80b5e9e4ed3c1b"
+  },
+  "cipher-cover-1024.jpg": {
+    "sha256": "6002bbda117da2050c528bf0749d445f7b2d734216a65a38c54e863e34268311",
+    "bytes": 826991,
+    "width": 1024,
+    "height": 1536,
+    "source_pixel_sha256": "7b9f45988e0e5830b77e4a17fd1c1f28c5874ea4d04a6f89408b718be0cd06f9"
+  },
+  "multitude-cover-1024.jpg": {
+    "sha256": "3f5abbd9d7dd7214d6aeb4451975f23f5bdde579c7d20c558ab4249530040b95",
+    "bytes": 1108029,
+    "width": 1024,
+    "height": 1536,
+    "source_pixel_sha256": "648290b2a7c049e0d24aab802302caf7abf3c91861f3a1f4348a33b2f200faf3"
+  }
+}
