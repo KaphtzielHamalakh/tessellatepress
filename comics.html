@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Comics — Tessellate Press</title>
+<meta name="description" content="Original comics from Tessellate Press and Eli Mercer: The Black Mask, The Multitude, Cipher, The Kabbalist, and Harlem Heroes.">
+<link rel="canonical" href="https://tessellatepress.com/comics.html">
+<meta name="theme-color" content="#14181A">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Comics — Tessellate Press">
+<meta property="og:description" content="Original comics from Tessellate Press: strange heroes, masks, systems, mystics, and cities under pressure.">
+<meta property="og:image" content="https://tessellatepress.com/logo-color.jpg">
+<meta property="og:url" content="https://tessellatepress.com/comics.html">
+<link rel="icon" href="favicon.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#E9DCC0;--paper-lt:#F3EAD8;--ink:#14181A;--ink-soft:#2C3234;--navy:#1B3A4B;--teal:#1E7A8C;--rust:#C8502A;--gold:#DCA23C;--rule:rgba(20,24,26,.28)}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:"Newsreader",Georgia,serif;font-size:1.0625rem;line-height:1.62;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:9;opacity:.5;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/><feColorMatrix type='saturate' values='0'/></filter><rect width='160' height='160' filter='url(%23n)' opacity='0.22'/></svg>");mix-blend-mode:multiply}
+a{color:inherit}.wrap{width:min(1120px,92vw);margin-inline:auto}
+h1,h2,h3{font-family:"Oswald",Impact,sans-serif;font-weight:600;line-height:1.03;text-transform:uppercase;margin:0}
+.mono{font-family:"Space Mono",monospace;text-transform:uppercase;letter-spacing:.14em;font-size:.7rem}
+.masthead{position:sticky;top:0;z-index:20;background:var(--paper);border-bottom:2px solid var(--ink)}
+.masthead .wrap{display:flex;align-items:center;gap:1rem;padding:.55rem 0}
+.brand{display:flex;align-items:center;gap:.55rem;text-decoration:none;margin-right:auto}
+.brand svg{width:26px;height:26px}.brand span{font-family:"Oswald",sans-serif;font-weight:600;text-transform:uppercase;letter-spacing:.09em;font-size:.95rem}
+.masthead nav{display:flex;gap:1.15rem}.masthead nav a{font-family:"Space Mono",monospace;font-size:.68rem;letter-spacing:.13em;text-transform:uppercase;text-decoration:none;padding-bottom:2px;border-bottom:1px solid transparent}
+.masthead nav a:hover,.masthead nav a:focus-visible{border-bottom-color:var(--rust)}
+.hero{background:var(--ink);color:var(--paper);padding:clamp(3.5rem,9vw,6.5rem) 0 clamp(3rem,7vw,5rem)}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(240px,.8fr);gap:clamp(2rem,6vw,4.5rem);align-items:center}
+.hero h1{font-size:clamp(3rem,9vw,6rem);font-weight:700;letter-spacing:.01em}.hero .mono{color:var(--gold);display:block;margin-bottom:1rem}
+.hero p{font-size:clamp(1.1rem,2.2vw,1.3rem);max-width:34rem;color:#DED2B8;font-weight:300}
+.burst{aspect-ratio:1;max-width:320px;justify-self:center;border:3px solid var(--paper);display:grid;place-items:center;transform:rotate(5deg);position:relative}
+.burst::before,.burst::after{content:"";position:absolute;inset:14%;border:2px solid var(--teal);transform:rotate(45deg)}.burst::after{inset:28%;border-color:var(--rust);transform:rotate(22deg)}
+.burst b{font-family:"Oswald",sans-serif;font-size:clamp(1.8rem,5vw,3.4rem);line-height:.9;text-transform:uppercase;text-align:center;z-index:1}
+section{padding:clamp(3.25rem,7vw,5.5rem) 0}.head{display:flex;align-items:baseline;gap:1rem;border-bottom:2px solid var(--ink);padding-bottom:.5rem;margin-bottom:2.5rem}
+.head h2{font-size:clamp(1.5rem,3.4vw,2.1rem);letter-spacing:.05em}.head .mono{margin-left:auto;opacity:.65}
+.series{display:grid;grid-template-columns:minmax(220px,.7fr) minmax(0,1.3fr);gap:clamp(1.5rem,5vw,4rem);padding:2.5rem 0;border-bottom:1px solid var(--rule)}
+.series:last-child{border-bottom:0}
+.covercard{min-height:320px;border:3px solid var(--ink);background:var(--paper-lt);box-shadow:8px 10px 0 rgba(20,24,26,.18);padding:1.25rem;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden}
+.covercard::before{content:"";position:absolute;width:180px;height:180px;border:30px solid currentColor;border-radius:50%;right:-85px;bottom:-85px;opacity:.08}
+.covercard.black{background:#171717;color:#E9DCC0}.covercard.multitude{background:#153743;color:#F3EAD8}.covercard.cipher{background:#E8E0CD;color:#14181A}.covercard.kabbalist{background:#5B2B28;color:#F3EAD8}.covercard.harlem{background:#D39A35;color:#14181A}
+.covercard .kicker{font-family:"Space Mono",monospace;font-size:.63rem;letter-spacing:.16em;text-transform:uppercase}
+.covercard strong{font-family:"Oswald",sans-serif;text-transform:uppercase;font-size:clamp(2rem,5vw,3.5rem);line-height:.9;letter-spacing:.01em}
+.series h3{font-size:clamp(1.9rem,4.4vw,2.8rem)}.byline{font-family:"Space Mono",monospace;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;margin:.6rem 0 1.2rem;color:var(--navy)}
+.series-copy{max-width:38rem;margin:0 0 1.5rem;color:var(--ink-soft)}
+.issues{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.65rem;max-width:42rem}
+.issue{border:1px solid var(--rule);padding:.65rem .8rem;background:rgba(243,234,216,.42);display:flex;justify-content:space-between;gap:1rem;align-items:center}
+.issue b{font-family:"Oswald",sans-serif;text-transform:uppercase;letter-spacing:.05em}.issue span{font-family:"Space Mono",monospace;font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;text-align:right}
+.issue .done{color:var(--teal)}.issue .soon{color:var(--rust)}
+.note{margin-top:1.2rem;font-style:italic;max-width:38rem}
+footer{background:var(--ink);color:#9FAAA8;padding:2.5rem 0;font-family:"Space Mono",monospace;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase}
+footer .wrap{display:flex;flex-wrap:wrap;gap:1rem;justify-content:space-between;align-items:center}footer a{color:var(--teal);text-decoration:none}footer a:hover{color:var(--gold)}
+@media(max-width:820px){.hero .wrap,.series{grid-template-columns:1fr}.burst{max-width:220px;justify-self:start}.masthead nav{gap:.7rem}.masthead nav a{font-size:.58rem;letter-spacing:.06em}.issues{grid-template-columns:1fr}}
+:focus-visible{outline:3px solid var(--rust);outline-offset:2px}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><g id="hexmark">
+<path d="M100 0 75 43.3 50 0Z"/><path d="M50 86.6 75 43.3 25 43.3Z"/><path d="M75 43.3 50 0 25 43.3Z"/><path d="M50 86.6 0 86.6 25 43.3Z"/><path d="M-50 86.6 0 86.6-25 43.3Z"/><path d="M0 86.6 25 43.3-25 43.3Z"/><path d="M0 0 25 43.3-25 43.3Z"/><path d="M-50 86.6-75 43.3-25 43.3Z"/><path d="M-100 0-75 43.3-50 0Z"/><path d="M-75 43.3-25 43.3-50 0Z"/><path d="M-100 0-75-43.3-50 0Z"/><path d="M-50-86.6-75-43.3-25-43.3Z"/><path d="M-75-43.3-50 0-25-43.3Z"/><path d="M0 0-50 0-25-43.3Z"/><path d="M-50-86.6 0-86.6-25-43.3Z"/><path d="M50-86.6 0-86.6 25-43.3Z"/><path d="M0-86.6-25-43.3 25-43.3Z"/><path d="M50-86.6 75-43.3 25-43.3Z"/><path d="M100 0 75-43.3 50 0Z"/><path d="M75-43.3 25-43.3 50 0Z"/><path d="M0 0 25-43.3 50 0Z"/>
+</g></defs></svg>
+
+<header class="masthead">
+<div class="wrap">
+<a class="brand" href="/">
+<svg viewBox="-104 -92 208 184" aria-hidden="true"><use href="#hexmark" fill="#14181A" stroke="#E9DCC0" stroke-width="3"/></svg>
+<span>Tessellate Press</span>
+</a>
+<nav><a href="/">Books</a><a href="/comics.html">Comics</a><a href="/#author">The author</a><a href="/#contact">Contact</a></nav>
+</div>
+</header>
+
+<div class="hero">
+<div class="wrap">
+<div>
+<span class="mono">Sequential stories · Eli Mercer</span>
+<h1>Comics</h1>
+<p>Masks, multitudes, codes, mystics, and heroes. Original comic series from Tessellate Press.</p>
+</div>
+<div class="burst" aria-hidden="true"><b>Five<br>Series</b></div>
+</div>
+</div>
+
+<section>
+<div class="wrap">
+<div class="head"><h2>Current & forthcoming series</h2><span class="mono">Tessellate Comics</span></div>
+
+<article class="series">
+<div class="covercard black"><span class="kicker">Tessellate Comics</span><strong>The<br>Black<br>Mask</strong><span class="kicker">Issues 1–4</span></div>
+<div>
+<h3>The Black Mask</h3><p class="byline">Four-issue series · Eli Mercer</p>
+<p class="series-copy">A masked vigilante story built around loyalty, identity, violence, and the cost of trying to protect the people closest to you.</p>
+<div class="issues">
+<div class="issue"><b>#1 · Born in the Fire</b><span class="done">Complete</span></div>
+<div class="issue"><b>#2 · Double Edged</b><span class="done">Complete</span></div>
+<div class="issue"><b>#3 · Listen</b><span class="done">Complete</span></div>
+<div class="issue"><b>#4 · Fight for Life</b><span class="done">Complete</span></div>
+</div>
+</div>
+</article>
+
+<article class="series">
+<div class="covercard multitude"><span class="kicker">Tessellate Comics</span><strong>The<br>Multitude</strong><span class="kicker">Issues 1–4</span></div>
+<div>
+<h3>The Multitude</h3><p class="byline">Four-issue series · Eli Mercer</p>
+<p class="series-copy">A science-fiction comic about collective identity, transformation, and what happens when the border between one mind and many begins to dissolve.</p>
+<div class="issues">
+<div class="issue"><b>#1 · Culture</b><span class="done">Complete</span></div>
+<div class="issue"><b>#2 · Bloom</b><span class="done">Complete</span></div>
+<div class="issue"><b>#3</b><span class="done">Complete</span></div>
+<div class="issue"><b>#4 · WE</b><span class="done">Complete</span></div>
+</div>
+</div>
+</article>
+
+<article class="series">
+<div class="covercard cipher"><span class="kicker">Tessellate Comics</span><strong>Cipher</strong><span class="kicker">Issues 1–4</span></div>
+<div>
+<h3>Cipher</h3><p class="byline">Four-issue series · Eli Mercer</p>
+<p class="series-copy">A technological thriller about Owen, hidden systems, and the dangerous gap between understanding a machine and realizing what the machine understands about you.</p>
+<div class="issues">
+<div class="issue"><b>#1 · Weights</b><span class="done">Complete</span></div>
+<div class="issue"><b>#2 · Boot</b><span class="done">Complete</span></div>
+<div class="issue"><b>#3</b><span class="soon">Coming soon</span></div>
+<div class="issue"><b>#4</b><span class="soon">Coming soon</span></div>
+</div>
+</div>
+</article>
+
+<article class="series">
+<div class="covercard kabbalist"><span class="kicker">Tessellate Comics</span><strong>The<br>Kabbalist</strong><span class="kicker">Issues 1–4</span></div>
+<div>
+<h3>The Kabbalist</h3><p class="byline">Four-issue series · Eli Mercer</p>
+<p class="series-copy">Mysticism enters the superhero frame: names, symbols, power, danger, and a world in which esoteric knowledge has consequences.</p>
+<div class="issues">
+<div class="issue"><b>#1</b><span class="soon">Coming soon</span></div>
+<div class="issue"><b>#2</b><span class="soon">Coming soon</span></div>
+<div class="issue"><b>#3</b><span class="soon">Coming soon</span></div>
+<div class="issue"><b>#4</b><span class="soon">Coming soon</span></div>
+</div>
+</div>
+</article>
+
+<article class="series">
+<div class="covercard harlem"><span class="kicker">Tessellate Comics</span><strong>Harlem<br>Heroes</strong><span class="kicker">Issues 1–4</span></div>
+<div>
+<h3>Harlem Heroes</h3><p class="byline">Four-issue series · Eli Mercer</p>
+<p class="series-copy">A street-level superhero series rooted in Harlem, built around a team whose powers matter less than what they owe one another and the neighborhood around them.</p>
+<div class="issues">
+<div class="issue"><b>#1</b><span class="soon">Coming soon</span></div>
+<div class="issue"><b>#2</b><span class="soon">Coming soon</span></div>
+<div class="issue"><b>#3</b><span class="soon">Coming soon</span></div>
+<div class="issue"><b>#4</b><span class="soon">Coming soon</span></div>
+</div>
+<p class="note">Release information and reading links will appear here as editions become publicly available.</p>
+</div>
+</article>
+</div>
+</section>
+
+<footer><div class="wrap"><span>Tessellate Press · Publisher of Eli Mercer</span><span><a href="/">Books</a> · <a href="/comics.html">Comics</a> · <a href="mailto:eli@tessellatepress.com">eli@tessellatepress.com</a></span></div></footer>
+</body>
+</html>
