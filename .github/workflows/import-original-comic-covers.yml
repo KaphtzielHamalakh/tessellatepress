@@ -1,0 +1,84 @@
+name: Import verified comic covers
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/import-original-comic-covers.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: import-original-comic-covers
+  cancel-in-progress: false
+
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Check out the current main branch
+        uses: actions/checkout@v4
+        with:
+          ref: main
+      - name: Download and validate the three cover images
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import hashlib
+          import io
+          import json
+          import urllib.request
+          import zipfile
+          from pathlib import Path
+
+          url = 'https://d2ol7oe51mr4n9.cloudfront.net/user_3Be6HKQSadLFuKUZcEybYy13W7V/2a5c1356-c31c-401f-80a5-219344e52817.zip'
+          archive_hash = 'c803550a401246a1a9fb012c10b433bc920e0088a87eb4755e8f2eda8817b575'
+          expected = {
+              'black-mask-cover-1024.jpg': ('cf76070cd732deb7596c2e083608fd42d9c5eec6f8f9034f661f7346818e336a', 1060885),
+              'cipher-cover-1024.jpg': ('6002bbda117da2050c528bf0749d445f7b2d734216a65a38c54e863e34268311', 826991),
+              'multitude-cover-1024.jpg': ('3f5abbd9d7dd7214d6aeb4451975f23f5bdde579c7d20c558ab4249530040b95', 1108029),
+          }
+          with urllib.request.urlopen(url, timeout=60) as response:
+              data = response.read(4_000_001)
+          if len(data) != 2997218 or hashlib.sha256(data).hexdigest() != archive_hash:
+              raise RuntimeError('Cover archive failed checksum or size validation')
+          target = Path('comics')
+          target.mkdir(exist_ok=True)
+          with zipfile.ZipFile(io.BytesIO(data)) as archive:
+              if set(archive.namelist()) != set(expected) | {'manifest.json'}:
+                  raise RuntimeError('Unexpected files in cover archive')
+              manifest = json.loads(archive.read('manifest.json'))
+              validated = {}
+              for filename, (digest, size) in expected.items():
+                  image = archive.read(filename)
+                  if len(image) != size or hashlib.sha256(image).hexdigest() != digest:
+                      raise RuntimeError('Image failed checksum validation: ' + filename)
+                  if not image.startswith(b'\xff\xd8') or not image.endswith(b'\xff\xd9'):
+                      raise RuntimeError('Incomplete JPEG: ' + filename)
+                  if (manifest[filename]['width'], manifest[filename]['height']) != (1024, 1536):
+                      raise RuntimeError('Unexpected source dimensions: ' + filename)
+                  validated[filename] = image
+              for filename, image in validated.items():
+                  (target / filename).write_bytes(image)
+                  # Repair the existing URL too, for visitors with cached HTML.
+                  (target / filename.replace('-1024.jpg', '.jpg')).write_bytes(image)
+                  print('Verified and installed:', filename, len(image), 'bytes; 1024 x 1536')
+              (target / 'cover-assets.json').write_text(json.dumps(manifest, indent=2) + '\n', encoding='utf-8')
+          PY
+      - name: Commit the verified binary files
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -- comics/black-mask-cover.jpg comics/cipher-cover.jpg comics/multitude-cover.jpg comics/black-mask-cover-1024.jpg comics/cipher-cover-1024.jpg comics/multitude-cover-1024.jpg comics/cover-assets.json
+          if git diff --cached --quiet; then
+            echo 'Verified covers are already installed.'
+          else
+            git commit -m 'Replace corrupt covers with verified 1024px original PDF covers'
+            git push origin HEAD:main
+          fi
