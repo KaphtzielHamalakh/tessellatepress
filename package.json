@@ -1,0 +1,14 @@
+{
+  "name": "tessellatepress-static",
+  "private": true,
+  "scripts": {
+    "test": "node tests/freecomicreader.test.cjs",
+    "serve": "node scripts/serve.cjs",
+    "cache": "node scripts/build-reader-cache.cjs"
+  },
+  "devDependencies": {
+    "playwright": "1.62.1",
+    "jszip": "3.10.1",
+    "pdf-lib": "1.17.1"
+  }
+}

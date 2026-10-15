@@ -1,0 +1,13 @@
+* text=auto
+*.js text eol=lf
+*.mjs text eol=lf
+*.cjs text eol=lf
+*.json text eol=lf
+*.css text eol=lf
+*.html text eol=lf
+*.md text eol=lf
+*.wasm binary
+*.bcmap binary
+*.ttf binary
+*.pfb binary
+freecomicreader/vendor/** -whitespace
