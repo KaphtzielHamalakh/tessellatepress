@@ -8,11 +8,13 @@ Static app at **https://tessellatepress.com/freecomicreader/**. The existing rep
 - Local library and reading progress; migration of the original prototype's `fcr` IndexedDB database.
 - Touch/swipe/keyboard navigation, manga direction, zoom with pan, fullscreen, scrubber, browser Back.
 - Installable PWA; local PDF.js 6.4.299 and JSZip 3.10.1, PDF worker, fonts, character maps and codecs cached for offline reading.
-- Optional Google Drive upload, list, download and progress sync. The integration ships **disabled until a public OAuth client ID is added**.
+- Optional Google Drive upload, list, download and progress sync, using the configured public OAuth web client.
 
 Limits: 250 MB per file, 5,000 pages per issue, 80 MB per extracted image. Very large/high-resolution files can still exceed a mobile device's memory. Unsupported or password-protected files show an error. Local storage is best effort, with a visible warning on failed persistence. Keep originals.
 
 ## Enable Google Drive
+
+The deployed client belongs to Google Cloud project `free-comic-reader-511703` (project number `70310854666`). Its authorized JavaScript origins are `https://tessellatepress.com` and `http://localhost:4173`. It requests only `drive.file`, and uses the homepage and privacy URLs below. Manage its audience and publishing status in [Google Auth Platform](https://console.cloud.google.com/auth/audience?project=free-comic-reader-511703). Follow these steps when replacing the client or deploying another instance.
 
 No client secret or server is needed for the browser token flow. Do not reuse another application's OAuth client unless its branding, permissions, and authorized origins are appropriate for this app.
 
