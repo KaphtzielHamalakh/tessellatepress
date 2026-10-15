@@ -68,6 +68,8 @@ async function mockGoogle(context, backend) {
   const url = origin + '/freecomicreader/';
   browser = await chromium.launch({ headless: true, ...(process.env.PLAYWRIGHT_CHANNEL ? { channel: process.env.PLAYWRIGHT_CHANNEL } : {}) });
   const context = await browser.newContext({ viewport: { width: 1440, height: 1000 } });
+  // Exercise the local-only fallback independently of the deployed client ID.
+  await context.route('**/freecomicreader/config.js', route => route.fulfill({ contentType: 'text/javascript', body: "export const GOOGLE_CLIENT_ID = '';" }));
   const page = monitor(await context.newPage()); await page.goto(url); await page.locator('#empty').waitFor();
   await page.screenshot({ path: path.join(results, 'desktop-empty.png'), fullPage: true });
   await page.locator('#cloudBtn').click(); assert.match(await page.locator('#cloudState').innerText(), /coming soon/); assert.equal(await page.locator('#connectBtn').isVisible(), false); await page.locator('#cloudDialog [data-close]').click();
