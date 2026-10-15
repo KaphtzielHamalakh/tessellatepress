@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#101113">
+  <meta name="description" content="Your comics. Your shelf. A free CBZ and PDF comic reader from Tessellate Press. Read offline, resume anywhere, and optionally save to your own Google Drive.">
+  <title>Free Comic Reader · Tessellate Press</title>
+  <link rel="canonical" href="https://tessellatepress.com/freecomicreader/">
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="icon" href="./icons/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="./icons/icon-192.png">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <main id="library">
+    <header class="masthead">
+      <a class="press-link" href="../">↖ Tessellate Press</a>
+      <div class="topbar">
+        <a class="wordmark" href="./" aria-label="Free Comic Reader home">FREE<span>COMIC</span><small>READER</small></a>
+        <div class="header-actions">
+          <button id="installBtn" class="button subtle" hidden>Install app</button>
+          <button id="cloudBtn" class="button subtle"><span aria-hidden="true">☁</span> <span>Cloud library</span></button>
+          <button id="addBtn" class="button primary"><span aria-hidden="true">＋</span> Add comics</button>
+        </div>
+      </div>
+    </header>
+    <div id="storageWarning" class="notice warning" role="alert" hidden></div>
+    <div class="shelf-heading"><div><p class="eyebrow">A LITTLE ESCAPE. ALWAYS WITH YOU.</p><h1>Your library<span class="accent">.</span></h1></div><span id="libraryCount" class="count">0 issues</span></div>
+    <div class="toolbar">
+      <label class="search"><span aria-hidden="true">⌕</span><input id="search" type="search" placeholder="Find an issue…" aria-label="Search your library"></label>
+      <label class="sort"><span>Sort</span><select id="sort" aria-label="Sort library"><option value="recent">Recently added</option><option value="reading">Recently read</option><option value="title">Title A–Z</option></select></label>
+    </div>
+    <section id="empty" class="empty" hidden>
+      <div class="empty-copy"><span class="badge">NO ACCOUNT REQUIRED</span><h2>Big stories.<br>Your little corner.</h2><p>Drop in a comic, settle into a page, and pick up right where you left off.</p><button id="addBtn2" class="button primary">＋ Add your first comic</button><p class="file-hint">CBZ, ZIP & PDF · Stored on this device</p></div>
+      <div class="comic-stack" aria-hidden="true"><div class="paper back"></div><div class="paper middle"></div><div class="paper front"><span>THE NEXT GREAT</span><b>ESCAPE</b><div class="burst">POW!</div><small>IS ALREADY ON YOUR SHELF.</small></div></div>
+    </section>
+    <p id="noResults" class="no-results" hidden>No issues match your search.</p>
+    <section id="grid" class="grid" aria-label="Comic library"></section>
+    <footer class="library-footer"><span id="offlineStatus">Local reading. No account needed.</span><div><button id="helpBtn" class="text-button">How it works</button><a href="./privacy.html">Privacy</a><a href="../comics.html">Tessellate comics ↗</a></div></footer>
+    <input id="file" type="file" accept=".cbz,.zip,.pdf,application/pdf,application/zip,application/vnd.comicbook+zip" multiple hidden>
+  </main>
+  <section id="reader" hidden aria-label="Comic reader">
+    <header id="rtop" class="reader-bar"><button id="backBtn" class="button subtle" aria-label="Back to library">← <span>Library</span></button><span id="rName" class="reader-name"></span><button id="rtlBtn" class="button subtle" aria-pressed="false" title="Right-to-left manga reading">RTL</button><button id="zoomBtn" class="button subtle" aria-pressed="false" title="Zoom page">Zoom</button><button id="fullscreenBtn" class="button subtle" aria-label="Toggle fullscreen">⛶</button></header>
+    <div id="stage" tabindex="0" aria-label="Page. Use left and right arrow keys to turn pages; Z to zoom."><div id="pageSurface"></div><div id="spin" role="status" hidden>Loading page…</div><p id="pageError" role="alert" hidden></p></div>
+    <footer id="rbot" class="reader-bar"><button id="prevBtn" class="button subtle" aria-label="Previous page">←</button><label class="sr-only" for="slider">Page</label><input id="slider" type="range" min="1" max="1" value="1" step="1"><span id="rCount" aria-live="polite"></span><button id="nextBtn" class="button subtle" aria-label="Next page">→</button></footer>
+  </section>
+  <dialog id="cloudDialog" aria-labelledby="cloudTitle"><button class="dialog-close" data-close aria-label="Close cloud library">×</button><span class="eyebrow">YOUR LIBRARY, ON YOUR TERMS</span><h2 id="cloudTitle">A shelf that travels.</h2><p>Save selected issues to your own Google Drive. Connect on another device to download them and continue reading.</p><p id="cloudState" class="notice"></p><div class="dialog-actions"><button id="connectBtn" class="button primary">Connect Google Drive</button><button id="syncBtn" class="button primary" hidden>Refresh cloud library</button><button id="disconnectBtn" class="button subtle" hidden>Disconnect</button></div><p class="fine-print">Only files saved through this app are accessed. Nothing uploads until you choose “Save to Drive” on an issue. Google Drive storage limits apply. <a href="./privacy.html">Privacy details</a></p></dialog>
+  <dialog id="helpDialog" aria-labelledby="helpTitle"><button class="dialog-close" data-close aria-label="Close help">×</button><span class="eyebrow">MAKE YOURSELF AT HOME</span><h2 id="helpTitle">Just one more page.</h2><ul class="help-list"><li><b>Add your own comics.</b> Choose CBZ, ZIP or PDF files, or drop them on your shelf. Each file can be up to 250 MB.</li><li><b>Read your way.</b> Tap the sides, swipe, or use arrow keys. Tap the middle to hide controls. RTL reverses page direction for manga.</li><li><b>Get closer.</b> Choose Zoom (or press Z), then scroll or drag the page. Your browser’s pinch zoom also works.</li><li><b>Keep your place.</b> Reading progress saves on this device. Removing an issue here leaves its Drive copy intact.</li><li><b>Take it offline.</b> Once “Ready for offline reading” appears, installed pages and downloaded comics work without internet. On iPhone or iPad, use Share → Add to Home Screen.</li></ul><p class="fine-print">Browser storage can be cleared or evicted. Keep your original files or save a copy to Drive. Private browsing may keep files only for the session.</p></dialog>
+  <dialog id="removeDialog" aria-labelledby="removeTitle"><h2 id="removeTitle">Remove from this device?</h2><p id="removeName"></p><p>Your original file and any Google Drive copy will stay safe.</p><div class="dialog-actions"><button id="removeConfirm" class="button danger">Remove local copy</button><button class="button subtle" data-close>Keep it</button></div></dialog>
+  <div id="status" class="status" role="status" aria-live="polite" hidden></div>
+  <noscript><p class="notice">Please enable JavaScript to use the comic reader.</p></noscript>
+  <script src="./vendor/jszip.min.js"></script>
+  <script type="module" src="./app.js"></script>
+</body>
+</html>
