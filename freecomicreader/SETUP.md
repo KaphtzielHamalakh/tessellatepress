@@ -57,3 +57,10 @@ Dependencies are vendored under `vendor/` with their licenses. To upgrade PDF.js
 - [Resumable uploads](https://developers.google.com/workspace/drive/api/guides/manage-uploads)
 - [Custom file properties](https://developers.google.com/workspace/drive/api/guides/properties)
 - [PDF.js releases](https://github.com/mozilla/pdf.js/releases)
+
+
+## Publisher free first issues
+
+The comics page links to five full first issues using `?issue=` keys listed in `featured.js`. Only that fixed catalog is accepted; arbitrary URLs are never fetched. A selected issue is downloaded once, stored on this device, and opened in the existing reader. Subsequent opens use the local copy and saved position, including offline. No Google account is needed and nothing is uploaded to Drive automatically.
+
+The published CBZ files in `comics/issues/` contain all 25 original-resolution pages, encoded as WebP for smaller downloads. No later issues belong in this public repository. Run `node tests/featured-issues.test.cjs` in addition to the existing test suite. The new suite accepts `PLAYWRIGHT_CHANNEL` (defaults to installed Chrome). Regenerate the reader cache with `node scripts/build-reader-cache.cjs` after changing reader assets.

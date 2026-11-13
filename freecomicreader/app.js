@@ -1,3 +1,4 @@
+import { FEATURED } from './featured.js';
 import { GOOGLE_CLIENT_ID } from './config.js';
 import { MAX_FILE_BYTES, cleanName, clampPage, visibleBooks, sortedBooks } from './core.js';
 import { LibraryStore } from './storage.js';
@@ -214,3 +215,26 @@ async function setupOffline() {
 await store.open(); render(); renderCloud();
 drive.prepare().catch(error => { cloudLoadError = error.message + ' Reconnect to the internet or allow Google, then reload.'; renderCloud(); });
 setupOffline();
+
+// Only the publisher's five free first issues can be opened from a link.
+async function openFeaturedIssue() {
+  const key = new URL(location.href).searchParams.get('issue');
+  if (!key) return;
+  const issue = Object.hasOwn(FEATURED, key) ? FEATURED[key] : null;
+  if (!issue) { status('This free issue is not available. Choose an issue from Tessellate comics.', true); return; }
+  const id = `featured:${key}`;
+  try {
+    if (!store.get(id) || !(await store.file(id))) {
+      status(`Downloading ${issue.title}.`, true);
+      const response = await fetch(issue.url);
+      if (!response.ok) throw new Error('This issue could not be downloaded. Please reconnect and try again.');
+      const blob = await response.blob();
+      const metadata = await inspectComic(blob, 'cbz');
+      await store.put({ id, name: issue.title, fileName: key + '.cbz', type: 'cbz', hash: await fileHash(blob), ...metadata, size: blob.size, lastPage: 1, addedAt: Date.now(), cached: true }, blob);
+      render();
+    }
+    status(`${issue.title} is ready for reading.`);
+    await openBook(id);
+  } catch (error) { fail(error); }
+}
+await openFeaturedIssue();
